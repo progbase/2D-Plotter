@@ -10,7 +10,7 @@ by [**Baboo Industry**](https://github.com/orgs/progbase/teams/baboo-industry)
 
 ### **Baboo Industry** [Team](https://github.com/orgs/progbase/teams/baboo-industry):
 - [Кузюра Ольга](https://github.com/oliakuzyura)
-- [Сутковетко Максим](https://github.com/Subuday)
+- [Сутковенко Максим](https://github.com/Subuday)
 - [Ганін Владислав](https://github.com/firmeldir)
 - [Дикий Ілля](https://github.com/stilpert)
 - [Ладуда Данил](https://github.com/ladudanil)
