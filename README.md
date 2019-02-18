@@ -4,7 +4,7 @@ by [**Baboo Industry**](https://github.com/orgs/progbase/teams/baboo-industry)
 ## Roadmap:
 * [Team](#baboo-indastry-team)
 * [Repository](https://github.com/progbase/2D-Plotter)
-* [Presentation](#)
+* [Presentation](https://prezi.com/view/dvqIe4W6cAgxIxycWK6t/)
 * [Details](#)
 * [Backlog](#)
 
