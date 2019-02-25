@@ -6,7 +6,7 @@ by [**Baboo Industry**](https://github.com/orgs/progbase/teams/baboo-industry)
 * [Repository](https://github.com/progbase/2D-Plotter)
 * [Presentation](https://prezi.com/view/dvqIe4W6cAgxIxycWK6t/)
 * [Details](#)
-* [Backlog](#)
+* [Backlog](https://docs.google.com/spreadsheets/d/11sLL6WWTjVyvc2YCeRklhXEZ2wQ-93g-77-S2wzIjZk/edit?usp=sharing)
 
 ### **Baboo Industry** [Team](https://github.com/orgs/progbase/teams/baboo-industry):
 - [Кузюра Ольга](https://github.com/oliakuzyura)
