@@ -1,6 +1,6 @@
 #include <ESP8266WiFi.h>
-#include <WiFiClient.h>
 #include <SoftwareSerial.h>
+#include <WiFiClient.h>
 
 const char *ssid = "JOPA";
 const char *password = "qjuehn123";
@@ -11,59 +11,66 @@ const int txPin = D3;
 SoftwareSerial NodeMCU(rxPin, txPin);
 
 WiFiServer server(23); // 192.168.4.1
+WiFiClient client;
 
-void setup()
-{
-  delay(1000);
+String msg = "";
 
-  NodeMCU.begin(115200);
-  Serial.begin(9600);
-
-  pinMode(D2, INPUT);
-  pinMode(D3, OUTPUT);
-
-  WiFi.softAP(ssid, password);
-  IPAddress myIP = WiFi.softAPIP();
-
-  Serial.print("Start TCP(telnet) server on ");
-  Serial.println(myIP.toString());
-
-  server.begin();
-  server.setNoDelay(true);
+String parseMessage(WiFiClient &client) {
+    String str = "";
+    while (client.connected()) {
+        int ch = client.read();
+        if (ch != -1) {
+            char c = ch;
+            str.concat(c);
+        }
+    }
+    return str;
 }
 
-void loop()
-{
-  if (server.hasClient())
-  {
-    digitalWrite(LED_BUILTIN, LOW);
+void printMessage(String &message) {
+    Serial.print("---(");
+    Serial.print(message.length());
+    Serial.println(")-------------------------------------------");
+    Serial.println(message);
+    Serial.println("-------------------------------------------------");
+}
 
-    WiFiClient client = server.available();
+void setup() {
+    delay(1000);
 
-    if (client.connected())
-    {
-      Serial.println("Connected to client!");
+    NodeMCU.begin(115200);
+    Serial.begin(9600);
 
-      String msg = "";
-      while (client.connected())
-      {
-        int ch = client.read();
-        if (ch != -1)
-        {
-          char c = ch;
-          msg.concat(c);
+    pinMode(D2, INPUT);
+    pinMode(D3, OUTPUT);
+
+    WiFi.softAP(ssid, password);
+    IPAddress myIP = WiFi.softAPIP();
+
+    Serial.print("Start TCP(telnet) server on ");
+    Serial.println(myIP.toString());
+
+    server.begin();
+    server.setNoDelay(true);
+}
+
+void loop() {
+    if (server.hasClient()) {
+        digitalWrite(LED_BUILTIN, LOW);
+        client = server.available();
+
+        if (client.connected()) {
+            Serial.println("\nConnected to client!");
+
+            msg = parseMessage(client);
+            NodeMCU.print(msg);
+
+            printMessage(msg);
+
+            client.stop();
+            Serial.println("Disconnected from client!\n");
         }
-      }
 
-      Serial.print(msg);
-      NodeMCU.print(msg);
-
-      Serial.println("\nDisconnected from client!");
-      client.stop();
+        digitalWrite(LED_BUILTIN, HIGH);
     }
-  }
-  else
-  {
-    digitalWrite(LED_BUILTIN, HIGH);
-  }
 }
