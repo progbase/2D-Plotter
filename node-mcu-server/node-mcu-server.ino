@@ -2,12 +2,15 @@
 #include <SoftwareSerial.h>
 #include <WiFiClient.h>
 
+// WiFi point config
 const char *ssid = "JOPA";
 const char *password = "qjuehn123";
 
+// INPUT/OUTPUT pins
 const int rxPin = D2;
 const int txPin = D3;
 
+// Serial instance
 SoftwareSerial NodeMCU(rxPin, txPin);
 
 WiFiServer server(23); // 192.168.4.1
@@ -15,6 +18,7 @@ WiFiClient client;
 
 String msg = "";
 
+// Returns received string from client
 String parseMessage(WiFiClient &client) {
     String str = "";
     while (client.connected()) {
@@ -27,6 +31,7 @@ String parseMessage(WiFiClient &client) {
     return str;
 }
 
+// Simple logging
 void printMessage(String &message) {
     Serial.print("---(");
     Serial.print(message.length());
