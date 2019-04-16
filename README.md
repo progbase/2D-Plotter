@@ -8,7 +8,7 @@ by [**Baboo Industry**](https://github.com/orgs/progbase/teams/baboo-industry)
 * [Details](#)
 * [Backlog](#)
 * [Documentation](https://docs.google.com/document/d/1ylTSaVnbQjjZEMylgC8xtbFBRXJzI3INwBUrYcpBy20/edit)
-
+* [Video](https://www.youtube.com/watch?v=PsQ1h94MmZs&feature=youtu.be)
 
 ### **Baboo Industry** [Team](https://github.com/orgs/progbase/teams/baboo-industry):
 - [Кузюра Ольга](https://github.com/oliakuzyura)
